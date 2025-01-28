@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>org.chintanu</groupId>
 	<artifactId>service-rest-customer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>service-rest-customer</name>
 	<description>Demo project for Spring Boot + Oracle + Elastic</description>
 	<properties>
