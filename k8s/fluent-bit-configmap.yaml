@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer-fluent-bit-config
+  namespace: efk
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush        1
+        Log_Level    info
+        Parsers_File parsers.conf
+
+    [INPUT]
+        Name              tail
+        Path              /logs/*.log
+        Parser            docker
+        Tag               service-rest-customer
+        Refresh_Interval  5
+
+    [OUTPUT]
+        Name  es
+        Match service-rest-customer
+        Host  elasticsearch
+        Port  9200
+        Index fluentbit
+        Type  _doc
+  parsers.conf: |
+    [PARSER]
+        Name   docker
+        Format json
+        Time_Key time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L

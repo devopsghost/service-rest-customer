@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: service-rest-customer
+  datasource:
+    url: jdbc:oracle:thin:aqdb/aqdb@//localhost:1521/orclpdb
+    username: aqdb
+    password: tiger
+    driverClassName: oracle.jdbc.OracleDriver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+#        dialect: org.hibernate.dialect.Oracle12cDialect
+    database-platform: org.hibernate.dialect.OracleDialect
+    hibernate:
+      ddl-auto: validate
+#  redis:
+#    host: localhost
+#    port: 6379
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    org:
+      springframework: INFO
+      hibernate:
+        orm:
+          jdbc:
+            bind: INFO
