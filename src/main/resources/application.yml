@@ -2,7 +2,7 @@ spring:
   application:
     name: service-rest-customer
   datasource:
-    url: jdbc:oracle:thin:aqdb/aqdb@//localhost:1521/orclpdb
+    url: jdbc:oracle:thin:aqdb/aqdb@//10.5.0.2:1521/orclpdb
     username: aqdb
     password: tiger
     driverClassName: oracle.jdbc.OracleDriver
